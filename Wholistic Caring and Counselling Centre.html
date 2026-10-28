@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Wholistic Caring and Counselling Centre</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&amp;family=Inter:wght@400;500;600&amp;display=swap">
+<style>
+:root{
+  /* THEME – sampled from the banner photo (navy band + sky-blue logo) */
+  --brand:#0a335f; --brand-ink:#ffffff; --accent:#2bb2e1; --accent-ink:#06233f;
+  --bg:#f6fafd; --surface:#ffffff; --text:#12243a; --muted:#4f6279; --line:#d5e3ee; --soft:#e6f4fb;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --brand:#4cc3ee; --brand-ink:#06233f; --accent:#2bb2e1; --accent-ink:#06233f;
+  --bg:#0a1626; --surface:#10233a; --text:#e8f1f8; --muted:#9db3c8; --line:#223a54; --soft:#0f2238; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --brand:#4cc3ee; --brand-ink:#06233f; --accent:#2bb2e1; --accent-ink:#06233f;
+  --bg:#0a1626; --surface:#10233a; --text:#e8f1f8; --muted:#9db3c8; --line:#223a54; --soft:#0f2238; color-scheme:dark}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 72px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:400 1rem/1.65 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+h1,h2,h3{font-family:Lora,Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .6rem;color:var(--brand)}
+h1{font-size:clamp(2rem,5vw,3.2rem)} h2{font-size:clamp(1.5rem,3.5vw,2.1rem)} h3{font-size:1.15rem}
+p{margin:0 0 1rem} a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--surface);z-index:10}
+header{position:sticky;top:env(safe-area-inset-top,0px);background:var(--surface);border-bottom:1px solid var(--line);z-index:11}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:68px}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--brand);font-family:Lora,Georgia,serif;font-weight:600;font-size:.98rem;line-height:1.15}
+.logo svg{width:38px;height:41px;flex:none}
+nav{display:flex;gap:1.2rem;align-items:center;overflow-x:auto}
+nav a{text-decoration:none;font-size:.92rem;color:var(--muted);white-space:nowrap}
+nav a:hover{color:var(--brand)}
+.btn{display:inline-block;padding:.75rem 1.3rem;border-radius:999px;background:var(--brand);color:var(--brand-ink);text-decoration:none;font-weight:600;border:0;cursor:pointer;font-size:1rem}
+.btn.alt{background:var(--accent);color:var(--accent-ink)}
+.btn.ghost{background:transparent;color:var(--brand);border:1.5px solid var(--brand)}
+.hero{background:linear-gradient(170deg,var(--soft),var(--bg));padding:4rem 0 0;overflow:hidden}
+.hero .in{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:2rem;align-items:center}
+.hero p.lead{font-size:1.15rem;color:var(--muted);max-width:620px}
+.hero .big{width:min(240px,60%);justify-self:center}
+.tag{display:inline-block;background:var(--surface);border:1px solid var(--line);padding:.3rem .8rem;border-radius:999px;font-size:.8rem;color:var(--brand);font-weight:600;margin-bottom:1rem}
+.cta{display:flex;gap:.8rem;flex-wrap:wrap;margin-top:1.5rem}
+.wave{display:block;width:100%;height:70px;margin-top:2.5rem}
+section{padding:4rem 0}
+section.alt{background:var(--soft)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.1rem;margin-top:1.8rem}
+.card{background:var(--surface);border:1px solid var(--line);border-top:4px solid var(--accent);border-radius:14px;padding:1.3rem}
+.card .ic{font-size:1.5rem;margin-bottom:.4rem}
+.card p{color:var(--muted);margin:0;font-size:.95rem}
+.two{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2.5rem;align-items:center}
+.stat{border-left:4px solid var(--accent);padding:.3rem 0 .3rem 1rem;margin-bottom:1rem}
+.stat b{font-family:Lora,serif;font-size:1.25rem;color:var(--brand)}
+details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:1rem 1.2rem;margin-bottom:.8rem}
+summary{cursor:pointer;font-weight:600}
+details p{margin:.7rem 0 0;color:var(--muted)}
+form{display:grid;gap:.9rem}
+label{font-size:.85rem;font-weight:600}
+input,textarea,select{width:100%;padding:.75rem .9rem;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text);font:inherit}
+input:focus,textarea:focus,select:focus{outline:2px solid var(--accent);outline-offset:1px}
+.help{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:12px;padding:1rem 1.2rem;font-size:.9rem;color:var(--muted);margin-top:1.2rem}
+footer{background:var(--brand);color:var(--brand-ink);padding:2.2rem 0;font-size:.9rem}
+.fgrid{display:flex;flex-wrap:wrap;justify-content:space-between;gap:1rem}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="lg" viewBox="0 0 120 130">
+  <g fill="#2bb2e1"><circle cx="60" cy="72" r="52"/><rect x="42" y="4" width="36" height="62" rx="3"/></g>
+  <g fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M67 29A10 10 0 1 0 67 41" stroke-width="5"/>
+    <path d="M44.8 46.4A18 18 0 1 0 44.8 69.6M75.2 46.4A18 18 0 1 1 75.2 69.6" stroke-width="6" opacity=".9"/>
+    <path d="M31 58L45 106L60 78L75 106L89 58" stroke-width="7"/>
+  </g>
+  <g fill="#fff"><circle cx="31" cy="58" r="4.5"/><circle cx="89" cy="58" r="4.5"/></g>
+</symbol></defs></svg>
+
+<header><div class="wrap nav">
+  <a class="logo" href="#top"><svg role="img" aria-label="WC&amp;CC logo"><use href="#lg"/></svg><span>Wholistic Caring<br>&amp; Counselling Centre</span></a>
+  <nav><a href="#about">About</a><a href="#services">Services</a><a href="#children">Children’s Home</a><a href="#faq">FAQ</a><a href="#contact">Contact</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero" style="padding-bottom:0"><div class="wrap">
+  <div class="in">
+    <div>
+      <span class="tag">Faith-based · Non-profit · Registered 1994</span>
+      <h1>Empowering minds, enriching lives.</h1>
+      <p class="lead">Compassionate, confidential counselling, therapy and support programmes for individuals, families and institutions across Kenya, caring for the whole person: body, mind and spirit.</p>
+      <div class="cta"><a class="btn" href="#contact">Book a counselling session</a><a class="btn ghost" href="tel:+254722739391">Call 0722 739 391</a></div>
+    </div>
+    <svg class="big" viewBox="0 0 120 130" role="img" aria-label="WC&amp;CC logo"><use href="#lg"/></svg>
+  </div>
+  <svg class="wave" viewBox="0 0 1200 70" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 30C250 0 450 60 700 40S1050 5 1200 25V70H0Z" fill="#0a335f" style="fill:var(--brand)"/>
+    <path d="M0 52C300 22 500 70 760 50S1080 30 1200 42V70H0Z" fill="#2bb2e1"/>
+  </svg>
+</div></section>
+
+<section id="about"><div class="wrap two">
+  <div>
+    <h2>Faith meets compassion</h2>
+    <p>Wholistic Caring and Counselling Centre (WC&amp;CC) is a religious trust-deed organisation registered in Kenya in 1994 and run as a non-profit.</p>
+    <p>Our mission is to empower individuals through education, counselling, advocacy and training, and to create a safe, supportive environment that nurtures mental health and wellness.</p>
+  </div>
+  <div>
+    <div class="stat"><b>Since 1994</b><br>Serving communities in Kenya</div>
+    <div class="stat"><b>Counselling · Education · Advocacy</b><br>Support for every stage of life</div>
+    <div class="stat"><b>Non-profit</b><br>Faith-based, confidential, compassionate</div>
+  </div>
+</div></section>
+
+<section id="services" class="alt"><div class="wrap">
+  <h2>Services we offer</h2>
+  <p style="color:var(--muted)">Professional, confidential support tailored to each person and family.</p>
+  <div class="grid">
+    <div class="card"><div class="ic">💬</div><h3>Individual &amp; group counselling</h3><p>One-to-one and group sessions in a safe, non-judgmental space.</p></div>
+    <div class="card"><div class="ic">🏢</div><h3>Institutional counselling &amp; team building</h3><p>Support for workplaces, schools and organisations.</p></div>
+    <div class="card"><div class="ic">👨‍👩‍👧</div><h3>Family &amp; relationship therapy</h3><p>Helping families and couples communicate and heal.</p></div>
+    <div class="card"><div class="ic">🤝</div><h3>Referral &amp; partnership programmes</h3><p>Connecting you with the right specialists and partners.</p></div>
+    <div class="card"><div class="ic">🌳</div><h3>Geriatric care</h3><p>Emotional support for older adults and their carers.</p></div>
+    <div class="card"><div class="ic">🌱</div><h3>Drug &amp; substance programmes</h3><p>Support towards recovery and healthier living.</p></div>
+    <div class="card"><div class="ic">🏠</div><h3>Family support programmes</h3><p>Practical and emotional help for families facing hardship.</p></div>
+    <div class="card"><div class="ic">🎓</div><h3>Youth &amp; teenage support</h3><p>Guidance and a listening ear for young people.</p></div>
+  </div>
+</div></section>
+
+<section id="children"><div class="wrap two">
+  <div>
+    <h2>The Children’s Home</h2>
+    <p>Our Children’s Home is a safe haven for vulnerable children, a place where they are nurtured, protected and given room to grow.</p>
+    <a class="btn alt" href="#contact">Partner or support with us</a>
+  </div>
+  <div class="card"><h3>Ways to get involved</h3><p>Volunteer, sponsor, invite us to speak, or simply enquire. Reach out below and our team will respond.</p></div>
+</div></section>
+
+<section id="faq" class="alt"><div class="wrap" style="max-width:780px">
+  <h2>Frequently asked questions</h2>
+  <details><summary>Where is the centre located?</summary><p>We are based in Kenya. Call or message us for directions and current visiting arrangements.</p></details>
+  <details><summary>What services do you offer?</summary><p>Individual, group, family and institutional counselling, plus support programmes for youth, families, older adults and people affected by substance use.</p></details>
+  <details><summary>Do you offer medical services?</summary><p>No. We are a counselling and support centre, and we can refer you to trusted partners when you need medical care.</p></details>
+  <details><summary>Is counselling confidential?</summary><p>Yes. Your privacy and dignity are central to how we work.</p></details>
+  <details><summary>How do I book?</summary><p>Use the form below, which opens WhatsApp with your message ready to send, or call us directly.</p></details>
+</div></section>
+
+<section id="contact"><div class="wrap two" style="align-items:start">
+  <div>
+    <h2>Get in touch</h2>
+    <p>Whether you need someone to talk to or want to support our work, we would be glad to hear from you.</p>
+    <p><b>Phone / WhatsApp:</b><br><a href="tel:+254722739391">+254 722 739 391</a></p>
+    <p><b>Location:</b> Kenya</p>
+    <div class="help"><b>In crisis?</b> Befrienders Kenya: +254 722 178 177 · Childline Kenya: 116 · Gender Violence Recovery Centre: 0800 720 565 (toll-free).</div>
+  </div>
+  <form id="f">
+    <div><label for="n">Your name</label><input id="n" required autocomplete="name"></div>
+    <div><label for="s">I’m enquiring about</label>
+      <select id="s"><option>Individual or group counselling</option><option>Family or relationship therapy</option><option>Institutional counselling</option><option>Youth support</option><option>Substance programme</option><option>Children’s Home</option><option>Other</option></select></div>
+    <div><label for="m">Message</label><textarea id="m" rows="4" required></textarea></div>
+    <button class="btn" type="submit">Send via WhatsApp</button>
+  </form>
+</div></section>
+</main>
+
+<footer><div class="wrap fgrid">
+  <div><b>Wholistic Caring and Counselling Centre (WC&amp;CC)</b><br>Religious trust-deed registered in Kenya, 1994 · Non-profit</div>
+  <div>+254 722 739 391</div>
+</div></footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var t='Hello WC&CC, my name is '+document.getElementById('n').value+'. Enquiry: '+document.getElementById('s').value+'. '+document.getElementById('m').value;
+  window.open('https://wa.me/254722739391?text='+encodeURIComponent(t),'_blank','noopener');
+});
+</script>
+</body>
+</html>
